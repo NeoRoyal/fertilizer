@@ -46,8 +46,11 @@ function loadCart() {
 // Call this function on cart.html load to display cart items
 if (document.title === "Cart") {
     loadCart();
-} else {
-    loadCartFromLocalStorage(); // Load cart on other pages
+}
+
+// Load the cart on other pages
+window.onload = function() {
+    loadCartFromLocalStorage(); // Load cart on all pages
 }
 
 // Function to handle checkout (can be expanded later)
