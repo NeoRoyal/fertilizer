@@ -17,16 +17,26 @@
     </header>
 
     <main>
-        <h2>Featured Products</h2>
-        <div class="product" id="product1">
-            <h3>Organic Fertilizer</h3>
-            <p>High-quality organic fertilizer for your plants.</p>
-            <button onclick="order('Organic Fertilizer')">Order Now</button>
-        </div>
-        <div class="product" id="product2">
-            <h3>Slow-Release Fertilizer</h3>
-            <p>Slow-release fertilizer that lasts for months.</p>
-            <button onclick="order('Slow-Release Fertilizer')">Order Now</button>
+        <h2>Order Fertilizer</h2>
+
+        <div class="order-form">
+            <h3>Customize Your Fertilizer</h3>
+            <form id="fertilizerOrderForm">
+                <label for="fertilizerType">Choose Fertilizer Type:</label>
+                <select id="fertilizerType" required>
+                    <option value="Organic Fertilizer">Organic Fertilizer</option>
+                    <option value="Slow-Release Fertilizer">Slow-Release Fertilizer</option>
+                    <option value="Liquid Fertilizer">Liquid Fertilizer</option>
+                </select>
+
+                <label for="elementName">Element Name (e.g., CO₂, N₂):</label>
+                <input type="text" id="elementName" placeholder="Enter element" required>
+
+                <label for="percentage">Percentage (%):</label>
+                <input type="number" id="percentage" min="0" max="100" required>
+
+                <button type="submit">Submit Order</button>
+            </form>
         </div>
     </main>
 
