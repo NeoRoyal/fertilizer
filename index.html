@@ -11,7 +11,7 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li><a href="cart.html">Cart <span id="cartCount">0</span></a></li>
         </ul>
     </nav>
 
@@ -23,6 +23,7 @@
                 <h3>Nitroammofoska Fertilizer</h3>
                 <p>Complex fertilizer with NPK nutrients (N-16%; P-16%; K-16%)</p>
                 <p>Price: 800 AZN per ton, 40 AZN per bag</p>
+                <button onclick="addToCart('Nitroammofoska Fertilizer', 800, '1 ton')">Add to Cart</button>
                 <button onclick="showMoreDetails()">More</button>
                 <div class="more-details" id="moreDetails">
                     <p>Nitroammofoska fertilizer increases plant immunity, accelerates adaptation to climate change, and enhances shelf life.</p>
