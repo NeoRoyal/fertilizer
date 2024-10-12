@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="products">
+            <h1>Fertilizer Products</h1>
+            <div class="product-card">
+                <img src="images/nitroammofoska.jpg" alt="Nitroammofoska Fertilizer">
+                <h3>Nitroammofoska Fertilizer</h3>
+                <p>Complex fertilizer with NPK nutrients (N-16%; P-16%; K-16%)</p>
+                <p>Price: 800 AZN per ton, 40 AZN per bag</p>
+                <button onclick="showMoreDetails()">More</button>
+                <div class="more-details" id="moreDetails">
+                    <p>Nitroammofoska fertilizer increases plant immunity, accelerates adaptation to climate change, and enhances shelf life.</p>
+                    <p>Composition: N-16%, P2O-16%, K2O-16%</p>
+                    <p>Price per ton: 800 AZN</p>
+                    <p>Price per 50kg bag: 40 AZN</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
