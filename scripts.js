@@ -1,8 +1,16 @@
 let cart = [];
 
+// Load cart from local storage when the script runs
+function loadCartFromLocalStorage() {
+    const storedCart = localStorage.getItem('cart');
+    cart = storedCart ? JSON.parse(storedCart) : [];
+    updateCartCount();
+}
+
 function addToCart(productName, price, quantity) {
     const item = { name: productName, price: price, quantity: quantity };
     cart.push(item);
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to local storage
     updateCartCount();
     alert(`${productName} has been added to your cart!`);
 }
@@ -27,17 +35,18 @@ function displayCartItems() {
     }
 }
 
-// Call this function on cart.html load to display cart items
 function loadCart() {
     displayCartItems();
+}
+
+// Call this function on cart.html load to display cart items
+if (document.title === "Cart") {
+    loadCart();
+} else {
+    loadCartFromLocalStorage(); // Load cart on other pages
 }
 
 // Function to handle checkout (can be expanded later)
 function proceedToCheckout() {
     alert('Proceeding to checkout!');
-}
-
-// Call loadCart when the cart page is loaded
-if (document.title === "Cart") {
-    loadCart();
 }
