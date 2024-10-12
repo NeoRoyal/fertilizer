@@ -2,12 +2,11 @@ document.getElementById('fertilizerOrderForm').addEventListener('submit', functi
     event.preventDefault();
 
     // Get form values
-    const fertilizerType = document.getElementById('fertilizerType').value;
     const elementName = document.getElementById('elementName').value;
     const percentage = document.getElementById('percentage').value;
 
     // Create order confirmation message
-    const orderMessage = `You have ordered: ${fertilizerType} with ${percentage}% ${elementName}. Thank you for your order!`;
+    const orderMessage = `You have ordered a fertilizer with ${percentage}% ${elementName}. Thank you for your order!`;
 
     // Display order confirmation
     alert(orderMessage);
