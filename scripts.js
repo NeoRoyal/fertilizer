@@ -7,6 +7,7 @@ function loadCartFromLocalStorage() {
     updateCartCount();
 }
 
+// Function to add item to the cart
 function addToCart(productName, price, quantity) {
     const item = { name: productName, price: price, quantity: quantity };
     cart.push(item);
@@ -15,11 +16,13 @@ function addToCart(productName, price, quantity) {
     alert(`${productName} has been added to your cart!`);
 }
 
+// Update cart count displayed in the navigation
 function updateCartCount() {
     const cartCount = document.getElementById('cartCount');
     cartCount.innerText = cart.length;
 }
 
+// Display items in the cart on the cart page
 function displayCartItems() {
     const cartItemsDiv = document.getElementById('cartItems');
     cartItemsDiv.innerHTML = ''; // Clear existing items
@@ -35,6 +38,7 @@ function displayCartItems() {
     }
 }
 
+// Load cart items on the cart page load
 function loadCart() {
     displayCartItems();
 }
