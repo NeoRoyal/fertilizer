@@ -11,7 +11,7 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="cart.html">Cart</a></li>
+            <li><a href="cart.html">Cart <span id="cartCount">0</span></a></li>
         </ul>
     </nav>
 
@@ -19,11 +19,12 @@
         <section class="cart">
             <h1>Your Cart</h1>
             <div id="cartItems">
-                <!-- Dynamically add cart items here -->
                 <p>No items in cart yet</p>
             </div>
-            <button>Proceed to Checkout</button>
+            <button onclick="proceedToCheckout()">Proceed to Checkout</button>
         </section>
     </main>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
