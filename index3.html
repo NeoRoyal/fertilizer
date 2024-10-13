@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+    <title>Galileo Design</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      function updatePrice(quantityInput, pricePerItem, totalPriceElement) {
+        const quantity = quantityInput.value;
+        const price = pricePerItem * quantity;
+        totalPriceElement.textContent = `$${price.toFixed(2)}`;
+      }
+
+      function updateTotalPrice() {
+        const totalElement = document.querySelector("#total-price");
+        let totalPrice = 0;
+
+        const quantityInputs = document.querySelectorAll(".quantity-input");
+        quantityInputs.forEach((input) => {
+          const pricePerItem = parseFloat(input.dataset.pricePerItem);
+          const quantity = parseFloat(input.value);
+          totalPrice += pricePerItem * quantity;
+        });
+
+        totalElement.textContent = `$${totalPrice.toFixed(2)}`;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const quantityInputs = document.querySelectorAll(".quantity-input");
+        quantityInputs.forEach((input) => {
+          const pricePerItem = parseFloat(input.dataset.pricePerItem);
+          const totalPriceElement = input.closest(".item-row").querySelector(".total-price");
+
+          input.addEventListener("input", () => {
+            updatePrice(input, pricePerItem, totalPriceElement);
+            updateTotalPrice();
+          });
+
+          // Update the price initially on page load
+          updatePrice(input, pricePerItem, totalPriceElement);
+        });
+
+        // Update total price on page load
+        updateTotalPrice();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-[#f8fcf8] group/design-root overflow-x-hidden" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+      <div class="flex items-center bg-[#f8fcf8] p-4 pb-2 justify-between">
+        <div class="text-[#0e1b0e] flex size-12 shrink-0 items-center" data-icon="ArrowLeft" data-size="24px" data-weight="regular">
+          <a href="index2.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+              <path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
+            </svg>
+          </a>
+        </div>
+        <h2 class="text-[#0e1b0e] text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Your Cart</h2>
+      </div>
+
+      <!-- Cart items -->
+      <div class="flex flex-col gap-6 px-4 py-6">
+        <div class="flex justify-between items-center item-row">
+          <div>
+            <p class="text-[#0e1b0e] text-base font-medium leading-normal">Fertilizer: Phosphate</p>
+            <p class="text-[#4e974e] text-sm font-normal leading-normal">10-20-10</p>
+          </div>
+          <div class="flex items-center gap-4">
+            <input
+              type="number"
+              min="1"
+              value="1"
+              class="quantity-input text-center w-16 p-1 border border-[#e2e2e2] rounded"
+              data-price-per-item="20"
+            />
+            <p class="total-price text-[#0e1b0e] text-base font-bold">$20.00</p>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center item-row">
+          <div>
+            <p class="text-[#0e1b0e] text-base font-medium leading-normal">Fertilizer: Potassium</p>
+            <p class="text-[#4e974e] text-sm font-normal leading-normal">0-0-60</p>
+          </div>
+          <div class="flex items-center gap-4">
+            <input
+              type="number"
+              min="1"
+              value="1"
+              class="quantity-input text-center w-16 p-1 border border-[#e2e2e2] rounded"
+              data-price-per-item="15"
+            />
+            <p class="total-price text-[#0e1b0e] text-base font-bold">$15.00</p>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center item-row">
+          <div>
+            <p class="text-[#0e1b0e] text-base font-medium leading-normal">Fertilizer: Magnesium</p>
+            <p class="text-[#4e974e] text-sm font-normal leading-normal">0-0-60</p>
+          </div>
+          <div class="flex items-center gap-4">
+            <input
+              type="number"
+              min="1"
+              value="1"
+              class="quantity-input text-center w-16 p-1 border border-[#e2e2e2] rounded"
+              data-price-per-item="18"
+            />
+            <p class="total-price text-[#0e1b0e] text-base font-bold">$18.00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Price Section -->
+      <div class="flex justify-between items-center px-4 py-4 border-t border-[#e2e2e2]">
+        <h3 class="text-[#0e1b0e] text-lg font-bold">Total Price</h3>
+        <p id="total-price" class="text-[#0e1b0e] text-lg font-bold">$0.00</p>
+      </div>
+
+      <!-- Checkout Button -->
+      <div class="flex px-4 py-3">
+        <button
+          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#19e619] text-[#0e1b0e] text-base font-bold leading-normal tracking-[0.015em]"
+        >
+          Proceed to Checkout
+        </button>
+      </div>
+      <div class="h-5 bg-[#f8fcf8]"></div>
+    </div>
+  </body>
+</html>
